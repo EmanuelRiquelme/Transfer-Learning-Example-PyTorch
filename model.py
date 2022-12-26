@@ -17,8 +17,6 @@ class Model(nn.Module):
 
     def __load_model__(self):
         model = resnet34(weights=ResNet34_Weights.IMAGENET1K_V1)
-        for param in model.parameters():
-            param.requires_grad = False
         model.fc = nn.Linear(512,self.num_classes)
         return model
 
